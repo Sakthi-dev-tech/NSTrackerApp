@@ -1,3 +1,3 @@
-# nstrackerapp
+# nstracker
 
 A new Flutter project.

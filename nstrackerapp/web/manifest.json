@@ -1,6 +1,6 @@
 {
-    "name": "nstrackerapp",
-    "short_name": "nstrackerapp",
+    "name": "nstracker",
+    "short_name": "nstracker",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

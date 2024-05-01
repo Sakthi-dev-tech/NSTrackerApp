@@ -1,4 +1,4 @@
-package com.example.nstrackerapp
+package com.example.nstracker
 
 import io.flutter.embedding.android.FlutterActivity
 
