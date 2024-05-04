@@ -1,0 +1,48 @@
+name: nstracker
+description: "A simple app to keep track of your NS Journey"
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.3.3 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  google_fonts: ^6.2.1
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  http: ^1.2.1
+  provider: ^6.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  flutter_launcher_icons: ^0.13.1
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icons/applogo.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/tonner.png
+    - assets/icons/sunbed.png
+    - assets/icons/running.png
+    - assets/icons/hard-work.png
+    - assets/icons/payday.png
+    - assets/icons/calendar.png
+    - assets/icons/christmas.png
+    - assets/icons/harirayapuasa.png
+    - assets/icons/good-friday.png
+    - assets/icons/cny.png
+    - assets/icons/diwali.png
+    - assets/icons/harirayahaji.png
+    - assets/icons/harirayapuasa.png
+    - assets/icons/nationalday.png
+    - assets/icons/polling.png
+    - assets/icons/vesak.png
