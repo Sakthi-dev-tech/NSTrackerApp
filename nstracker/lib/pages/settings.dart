@@ -466,8 +466,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
     if (_ordDatePicked != null) {
       //if a date has been selected
-      if (_ordDatePicked
-          .isAfter(DateTime.parse(_enlistmentDateController.text))) {
+      if (_ordDatePicked.isAfter(DateTime.parse(_enlistmentDateController.text)) && _ordDatePicked.toString() != _enlistmentDateController.text)  {
         setState(() {
           final selectedORDDateWithoutTime = DateTime(
                   _ordDatePicked.year, _ordDatePicked.month, _ordDatePicked.day)
@@ -509,8 +508,6 @@ class _SettingsPageState extends State<SettingsPage> {
     await homepageBox.put('ipptResult', ipptTextController.text);
 
     await homepageBox.put('leavesLeft', leavesLeftDisplay);
-
-    await homepageBox.put('serviceDuration', serviceDuration);
 
     await homepageBox.put('enlistmentDate', _enlistmentDateController.text);
     await homepageBox.put('ordDate', _ordDateController.text);

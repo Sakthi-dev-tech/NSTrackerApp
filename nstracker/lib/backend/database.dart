@@ -36,9 +36,9 @@ Future<Box<dynamic>> fetchPublicHolidays() async {
 final holidayBox = Hive.box('holidayListBox');
 final homepageBox = Hive.box('homepageDisplay');
 
-Null checkHolidayBoxEmpty() {
+Future<Null> checkHolidayBoxEmpty() async {
   if (holidayBox.isEmpty) {
-    fetchPublicHolidays();
+    await fetchPublicHolidays();
   }
 }
 
@@ -50,7 +50,11 @@ String nextUpcomingHolidayDate() {
     }
   }
 
-  return "Error";
+  return "Error finding the next Holiday";
+}
+
+String upcomingHolidayNameFunction({required String dateForUpcomingHoliday}) {
+  return holidayBox.get(dateForUpcomingHoliday);
 }
 
 Future<void> setDefaultValuesHomepage() async {

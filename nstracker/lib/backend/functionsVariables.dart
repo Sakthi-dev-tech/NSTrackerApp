@@ -32,13 +32,12 @@ Map<String, String> holidayIconPaths = {
 
 Map homepageVariables = {
   "enlistmentDate": DateTime.now().toString().split(" ")[0],
-  "ordDate": DateTime.now().toString().split(" ")[0],
+  "ordDate": DateTime(DateTime.now().year + 2, DateTime.now().month, DateTime.now().day).toString().split(" ")[0],
   "displayDaysToORD": "730 Days Left!",
   "payDay": '10',
   "daysToPayDay": '8',
   "ipptResult": "69",
   "leavesLeft": '14.0',
-  "serviceDuration": "22",
   "progressValue": 0.0,
 };
 
@@ -57,12 +56,10 @@ Map<String, String> payDayToDropdownValue = {
 };
 
 String dateForUpcomingHoliday = nextUpcomingHolidayDate();
-String upcomingHolidayName = holidayBox.get(dateForUpcomingHoliday);
+String upcomingHolidayName = upcomingHolidayNameFunction(dateForUpcomingHoliday: nextUpcomingHolidayDate()); //* FIX THIS: throws an exception on first run due to the dateForUpcomingHoliday does not have enough time to be updated
 String iconPath = holidayIconPaths[holidayBox.get(
     dateForUpcomingHoliday)]!; //* think of what to do when there is an approstrophe in the ''
-int numberOfDaysToUpcomingHoliday =
-    DateTime.parse(dateForUpcomingHoliday).difference(DateTime.now()).inDays +
-        1;
+int numberOfDaysToUpcomingHoliday = DateTime.parse(dateForUpcomingHoliday).difference(DateTime.now()).inDays + 1;
 
 class InformationWidgets extends StatefulWidget {
   final String widgetTitle;
@@ -159,8 +156,6 @@ class _InformationWidgetsState extends State<InformationWidgets> {
 //Settings Page Variables
 
 String leavesLeftDisplay = homepageBox.get('leavesLeft');
-
-String serviceDuration = homepageBox.get('serviceDuration');
 
 String ipptDisplay = homepageBox.get('ipptResult');
 
