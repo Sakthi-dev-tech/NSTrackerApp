@@ -9,8 +9,15 @@ double heightForSmallWidgets = 75;
 double progressValue = homepageBox.get('progressValue');
 double progressCompleted = progressValue * 100;
 String progressCompletedDisplay = progressCompleted.toStringAsFixed(2);
-String displayProgressCompleted = '$progressCompletedDisplay% Done';
+String displayProgressCompleted = displayProgressCompletedCheckIfORD();
 
+String displayProgressCompletedCheckIfORD(){
+  if (progressCompleted >= 100.00){
+    return "OWADIO!";
+  } else {
+    return '$progressCompletedDisplay% Done';
+  }
+}
 
 String displayDaysToORD = homepageBox.get('displayDaysToORD');
 

@@ -61,17 +61,27 @@ class HomepageProvider extends ChangeNotifier{
 
     ipptDisplay = newIPPTDisplay;
 
-    progressValue = calculateProgressValue(enlistmentDate, ordDate);
-    await homepageBox.put('progressValue', progressValue);
-
     int daysBetweenORDAndNow = DateTime.parse(ordDate).difference(DateTime.now()).inDays + 1;
 
-    progressCompleted = progressValue * 100;
-    progressCompletedDisplay = progressCompleted.toStringAsFixed(2);
-    displayProgressCompleted = '$progressCompletedDisplay% Done';
-    displayDaysToORD = "$daysBetweenORDAndNow Days Left!";
-    await homepageBox.put('displayDaysToORD', displayDaysToORD);
+    progressValue = calculateProgressValue(enlistmentDate, ordDate);
 
+    progressCompleted = progressValue * 100;
+
+    if (progressValue > 1.00){
+      progressValue = 1.00;
+      await homepageBox.put('progressValue', progressValue);
+      progressCompleted = 100.00;
+      progressCompletedDisplay = progressCompleted.toStringAsFixed(2);
+      displayProgressCompleted = 'OWADIO!';
+      displayDaysToORD = "0 Days Left!";
+    } else {
+      await homepageBox.put('progressValue', progressValue);
+      progressCompletedDisplay = progressCompleted.toStringAsFixed(2);
+      displayProgressCompleted = '$progressCompletedDisplay% Done';
+      displayDaysToORD = "$daysBetweenORDAndNow Days Left!";
+    }
+
+    await homepageBox.put('displayDaysToORD', displayDaysToORD);
     daysToPayDay = getDaysToPayDay(daysToPayDayDictionary[payDay]!);
     await homepageBox.put('daysToPayDay', daysToPayDay);
     await homepageBox.put('payDay', daysToPayDayDictionary[payDay].toString());
